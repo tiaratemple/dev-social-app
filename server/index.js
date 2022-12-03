@@ -1,16 +1,12 @@
 require("dotenv").config();
 
-const { sequelize } = require("../util/database");
-const { User } = require("./models/user");
-const { Post } = require("./models/post");
-
 const express = require("express");
 const cors = require("cors");
 
+const { sequelize } = require("./util/database");
+const { User } = require("./models/user");
+const { Post } = require("./models/post");
 const { PORT } = process.env;
-
-User.hasMany(Post);
-Post.belongsTo(User);
 
 const {
   getAllPosts,
@@ -26,6 +22,9 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+User.hasMany(Post);
+Post.belongsTo(User);
 
 app.post("/register", register);
 app.post("/login", login);

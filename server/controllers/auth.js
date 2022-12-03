@@ -1,7 +1,7 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const { SECRET } = process.env;
-const { User } = require("./models/user");
+const { User } = require("../models/user");
 const bcrypt = require("bcryptjs");
 
 const createToken = (username, id) => {
@@ -46,7 +46,8 @@ module.exports = {
         res.status(400).send("cannot log in");
       }
     } catch (error) {
-      console.log("Error");
+      console.log("Error in register");
+      console.log(error);
       res.sendStatus(400);
     }
   },
@@ -74,7 +75,8 @@ module.exports = {
         });
       }
     } catch (error) {
-      console.log("Error");
+      console.log("Error in register");
+      console.log(error);
       res.sendStatus(400);
     }
   },

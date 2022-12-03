@@ -8,7 +8,8 @@ module.exports = {
       await Post.create({ title, content, privateStatus: status, userId });
       res.sendStatus(200);
     } catch (error) {
-      console.log("Error");
+      console.log("Error in getCurrentUserPosts");
+      console.log(error);
       res.sendStatus(400);
     }
   },
@@ -27,7 +28,8 @@ module.exports = {
       });
       res.status(200).send(posts);
     } catch (error) {
-      console.log("Error");
+      console.log("Error in getAllPosts");
+      console.log(error);
       res.sendStatus(400);
     }
   },
@@ -47,7 +49,8 @@ module.exports = {
       });
       res.status(200).send(posts);
     } catch (error) {
-      console.log("Error");
+      console.log("Error in getCurrentUserPosts");
+      console.log(error);
       res.sendStatus(400);
     }
   },
@@ -59,7 +62,8 @@ module.exports = {
       await Post.update({ privateStatus: status }, { where: { id: +id } });
       res.sendStatus(200);
     } catch (error) {
-      console.log("Error");
+      console.log("Error in getCurrentUserPosts");
+      console.log(error);
       res.sendStatus(400);
     }
   },
@@ -70,7 +74,8 @@ module.exports = {
       await Post.destroy({ where: { id: +id } });
       res.sendStatus(200);
     } catch (error) {
-      console.log("Error");
+      console.log("Error in getCurrentUserPosts");
+      console.log(error);
       res.sendStatus(400);
     }
   },
